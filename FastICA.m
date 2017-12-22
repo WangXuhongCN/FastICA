@@ -43,5 +43,6 @@ WP(i)=mean(Z(i,:).*(tanh((LastWP)'*Z)))-(mean(1-(tanh((LastWP))'*Z).^2)).*LastWP
         end
     end
     W(:,n)=WP;
+    WP
 end
 Z=W'*Z;
