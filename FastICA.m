@@ -26,7 +26,7 @@ for n=1:m
     W(:,n)=W(:,n)/norm(W(:,n));
     while abs(WP-LastWP)&abs(WP+LastWP)>Critical
         count=count+1;   %迭代次数
-        LastWP=WP;      %上次迭代的值
+        LastWP=WP;     %上次迭代的值
        % WP=1/T*Z*((LastWP'*Z).^3)'-3*LastWP;
         for i=1:m    
 WP(i)=mean(Z(i,:).*(tanh((LastWP)'*Z)))-(mean(1-(tanh((LastWP))'*Z).^2)).*LastWP(i);
@@ -43,6 +43,5 @@ WP(i)=mean(Z(i,:).*(tanh((LastWP)'*Z)))-(mean(1-(tanh((LastWP))'*Z).^2)).*LastWP
         end
     end
     W(:,n)=WP;
-    WP
 end
 Z=W'*Z;
